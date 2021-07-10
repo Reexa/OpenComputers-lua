@@ -1,0 +1,24 @@
+--главный файл. нужен для создания основного действия системы и подтягивания всез необходимых либ
+--TODO: переименовать в main.lua
+local Event = require("poPAD_OS/Event")
+local gui = require("poPAD_OS/GUIlibrary")
+local Container = require("poPAD_OS/Container")
+local Render = require("poPAD_OS/Render")
+gui:clearScreen()
+
+
+--Button:make("e", "blyad", "OK")
+
+newElement = { }
+
+Button:make("title", "message", "button", gui.ScreenSize[1]/2, gui.ScreenSize[2]/2, 20, 10)
+
+newElement["Xpos"] = 123; newElement["Ypos"] = 123; newElement["Width"] = 123; newElement["Height"] = 123; newElement["isVisible"] = true;
+
+Container:addElement(newElement)
+
+local cn = {"first", "second", "third", "four"}
+local firstFuntion, secondFunction, thirdFunction, fourtFuntion = print, print, print, print
+local callbacks = {firstFuntion, secondFunction, thirdFunction, fourtFuntion}
+
+gui.Context:Draw(gui.ScreenSize[1]/3, gui.ScreenSize[2]/2, cn, callbacks)
